@@ -1,0 +1,11 @@
+run = "gunicorn app:app --bind 0.0.0.0:5000"
+
+[nix]
+channel = "stable-22_11"
+
+[env]
+PYTHON_LD_LIBRARY_PATH = "/nix/store/2f0hnlhklpn4bymfnvpkk7xqr6gv3d2p-python3-3.10.8/lib"
+
+[deployment]
+run = ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:5000"]
+deploymentTarget = "cloudrun"
